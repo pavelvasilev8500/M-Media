@@ -1,0 +1,26 @@
+﻿@model M_Media.ViewModels.GameListViewModel
+
+<h1>@Model.Category</h1>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach(var o in Model.Games)
+    {
+        <div class="col">
+            <div class="card pie-card">
+                <img src= "@o.ImageThunbnailUrl" class="card-img-top" alt="@o.Name" height="220" width="400"/>
+                <div class="card-body pie-button">
+                    <h4 class="d-grid"/>
+                    <div class="d-flex justify-content-between mt-2">
+                        <h2 class="text-start">
+                            <a class="pie-link" asp-controller="Game" asp-action="GameDetails" asp-route-id="@o.Id">
+                                @o.Name
+                            </a>
+                        </h2>
+                        <h5 class="text-nowrap">
+                            @o.StorePrise.ToString("c")
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
